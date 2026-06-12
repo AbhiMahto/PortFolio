@@ -24,7 +24,7 @@
 //         </div>
 
 //  <div className="bg-white p-8 rounded-xl shadow-2xl space-y-5 text-black w-[98%] justify-center items-center mx-4  ">
-  
+
 //         <div className="text-black text-xl mr-40 font-medium ">
 //           <p className="leading-relaxed">
 //             Hi, I'm Abhinam Kumar Mahato , A Computer Science and Engineering Student at RVSCET Jamshedpur . As an aspiring Software Engineer, I'm passionate developer with experience in building
@@ -51,46 +51,46 @@
 
 
 import React from "react";
-import photo from "./photo.jpg"; // Make sure this path is correct
+import photo from "./photo2.jpeg"; // Make sure this path is correct
 
 function About() {
   return (
     <div className="bg-[#121212]">
-    <section id="about" className="py-18 px-4 md:px-10">
-      {/* Heading */}
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-amber-50 underline underline-offset-8 decoration-pink-400">
-          About Me
-        </h2>
-      </div>
-
-      {/* Image + Description */}
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-10 max-w-6xl mx-auto">
-        {/* Profile Image */}
-        <div data-aos="fade-up">
-          <img
-            src={photo}
-            alt="Abhinam Mahato Profile"
-            className="w-[280px] sm:w-[320px] md:w-[350px] h-[400px] md:h-[435px] object-cover rounded-lg shadow-lg drop-shadow-[0_7px_29px_rgba(255,0,130,0.3)]"
-          />
+      <section id="about" className="py-18 px-4 md:px-10">
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-amber-50 underline underline-offset-8 decoration-pink-400">
+            About Me
+          </h2>
         </div>
 
-        {/* Bio Text */}
-        <div className="bg-white p-6 md:p-8 rounded-xl shadow-2xl space-y-5 text-black max-w-xl">
-          <p className="text-base md:text-lg leading-relaxed font-medium">
-            Hi, I'm <strong>Abhinam Kumar Mahato</strong>, a Computer Science and Engineering student at RVSCET Jamshedpur. As an aspiring Software Engineer, I'm a passionate developer with experience in building responsive and user-friendly web applications.
-          </p>
+        {/* Image + Description */}
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-10 max-w-6xl mx-auto">
+          {/* Profile Image */}
+          <div data-aos="fade-up">
+            <img
+              src={photo}
+              alt="Abhinam Mahato Profile"
+              className="w-[280px] sm:w-[320px] md:w-[350px] h-[400px] md:h-[435px] object-cover rounded-lg shadow-lg drop-shadow-[0_7px_29px_rgba(255,0,130,0.3)]"
+            />
+          </div>
 
-          <p className="text-base md:text-lg leading-relaxed font-medium">
-            I enjoy working with modern technologies like <strong>React</strong>, <strong>Tailwind CSS</strong>, and <strong>Js</strong>. I love solving real-world problems through code and continuously improving my skills.
-          </p>
+          {/* Bio Text */}
+          <div className="bg-white p-6 md:p-8 rounded-xl shadow-2xl space-y-5 text-black max-w-xl">
+            <p className="text-base md:text-lg leading-relaxed font-medium">
+              Hi, I'm <strong>Abhinam Kumar Mahato</strong>, a Computer Science and Engineering student at R.V.S College of Engineering and Technology (CGPA: 7.6). As an aspiring Software Engineer, I am a passionate developer with professional experience in building responsive and user-friendly web applications.
+            </p>
 
-          <p className="text-base md:text-lg leading-relaxed font-medium">
-            Beyond coding, I'm dedicated to sharing knowledge and contributing to the tech community. I actively participate in hackathons and solve DSA problems to strengthen my problem-solving abilities.
-          </p>
+            <p className="text-base md:text-lg leading-relaxed font-medium">
+              Recently, as a <strong>Front-End Developer Intern at Autocluster Adityapur</strong>, I completely revamped their UI using <strong>React.js</strong> and <strong>Tailwind CSS</strong>, integrated core APIs, and improved user engagement by 15%. I love building optimized, performance-driven web solutions.
+            </p>
+
+            <p className="text-base md:text-lg leading-relaxed font-medium">
+              Beyond development, I am an avid competitive programmer, ranked <strong>61st in college on GeeksforGeeks</strong>. I also actively participate in hackathons, recently being selected among the <strong>Top 30 teams out of 2000+ participants at Ranchi Hacks 2026</strong>!
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 }

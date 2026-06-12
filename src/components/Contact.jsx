@@ -1,36 +1,4 @@
-// import React from 'react'
-// import Typewriter from "typewriter-effect";
 
-// function Contact() {
-
-//   return (
-//     <section className=" max-w-screen py-18 px-4 bg-black text-white" id="experience">
-//       <h2 className="text-3xl font-bold text-amber-50 text-center mb-10 underline decoration-cyan-400 underline-offset-8">
-//         Contact Us
-        
-//       </h2>
-
-//       <div className=" flex justify-center  items-center max-h-screen">
-//         <p className='typing text-9xl font-medium '> Get in Touch With Us</p>
-//       </div>
-
-
-
-
-
-
-      
-        
-
-
-
-
-
-//       </section>
-//   )
-// }
-
-// export default Contact
 
 import { Repeat } from 'lucide-react';
 import React from 'react';

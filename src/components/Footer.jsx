@@ -1,33 +1,4 @@
-// import React from "react";
-// import { Github, Linkedin, Mail } from "lucide-react";
-// function Footer() {
-//   return (
-//     <>
-//       <hr />
-//       <footer className="py-8 bg-[#121212]">
-//         <div className="max-w-screen-2xl container mx-auto px-4 md:px-20">
-//           <div className="flex flex-col">
-//             <div className="flex space-x-4 ">
-//               <Github size={24} className="text-white hover:text-pink-500 transition-colors" />
-//               <Linkedin size={24} className="text-amber-50 hover:text-pink-500 transition-colors" />
-//               <Mail size={24} className="text-amber-50 hover:text-pink-500 transition-colors" />
-//             </div>
 
-//             <h2 className="text-pink-500 text-lg text-center md:text-right font-semibold">Abhinam</h2>
-//           </div>
-//           <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col items-center">
-//             <p className="text-md text-amber-50">
-//               &copy;2025 Abhinam Kumar. All right reversed
-//             </p>
-//             <p className="text-sm text-teal-200">Made By ❤️</p>
-//           </div>
-//         </div>
-//       </footer>
-//     </>
-//   );
-// }
-
-// export default Footer;
 
 
 import React from "react";
