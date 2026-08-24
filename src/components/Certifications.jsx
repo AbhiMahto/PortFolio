@@ -106,8 +106,8 @@ function Certifications() {
       : certificationsList.filter((cert) => cert.category === activeCategory);
 
   return (
-    <div className="bg-[#0a0a0a]">
-      <section id="certifications" className="py-14 sm:py-16 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="certifications" className="min-h-screen flex flex-col justify-center bg-[#0a0a0a] py-16 px-4 md:px-8 w-full">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Section Title */}
         <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-amber-50 underline underline-offset-8 decoration-pink-400">
@@ -195,9 +195,8 @@ function Certifications() {
             </div>
           ))}
         </div>
-      </section>
 
-      {/* Certificate Lightbox Modal */}
+        {/* Certificate Lightbox Modal */}
       {selectedCert && (
         <div
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
@@ -255,7 +254,8 @@ function Certifications() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </section>
   );
 }
 

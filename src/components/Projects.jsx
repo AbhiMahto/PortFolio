@@ -60,8 +60,8 @@ function Projects() {
       : projectList.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="bg-[#0a0a0a]">
-      <section id="projects" className="py-14 sm:py-16 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="projects" className="min-h-screen flex flex-col justify-center bg-[#0a0a0a] py-16 px-4 md:px-8 w-full">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Section Heading */}
         <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-amber-50 underline underline-offset-8 decoration-pink-400">
@@ -151,8 +151,8 @@ function Projects() {
             </div>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 

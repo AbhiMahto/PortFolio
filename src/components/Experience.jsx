@@ -73,8 +73,8 @@ function Experience() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="bg-[#0a0a0a]">
-      <section id="experience" className="py-14 sm:py-16 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="experience" className="min-h-screen flex flex-col justify-center bg-[#0a0a0a] py-16 px-4 md:px-8 w-full">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Section Heading matching Projects section */}
         <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-amber-50 underline underline-offset-8 decoration-pink-400">
@@ -229,7 +229,7 @@ function Experience() {
             })()}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Image Modal Lightbox */}
       {selectedImg && (
@@ -253,7 +253,7 @@ function Experience() {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

@@ -7,6 +7,7 @@ const educationItems = [
     subtitle: "R.V.S. College of Engineering and Technology (JUT Ranchi)",
     date: "2023 – 2027",
     description: "Pursuing Bachelor of Technology in CSE with core focus on Software Development, Data Structures & Algorithms, Database Systems, and AI/ML.",
+    cgpa: "7.6",
     badge: "Undergraduate",
   },
   {
@@ -29,8 +30,8 @@ const educationItems = [
 
 function Education() {
   return (
-    <section className="py-14 sm:py-16 px-4 md:px-8 bg-black text-white" id="education">
-      <div className="max-w-6xl mx-auto">
+    <section className="min-h-screen flex flex-col justify-center bg-black text-white py-16 px-4 md:px-8 w-full" id="education">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Section Heading */}
         <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-amber-50 underline decoration-pink-400 underline-offset-8">
@@ -75,10 +76,10 @@ function Education() {
                 </p>
               </div>
 
-              {item.percentage && (
+              {(item.cgpa || item.percentage) && (
                 <div className="pt-3 border-t border-gray-800/80 mt-2">
                   <span className="text-xs font-bold text-cyan-400">
-                    Score: {item.percentage}
+                    {item.cgpa ? `CGPA: ${item.cgpa}` : `Score: ${item.percentage}`}
                   </span>
                 </div>
               )}
