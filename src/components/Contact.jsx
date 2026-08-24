@@ -27,7 +27,7 @@ function Contact() {
 
   return (
     <section
-      className="relative w-full py-16 sm:py-20 px-4 md:px-8 bg-black text-white min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative w-full py-20 px-4 md:px-8 bg-black text-white overflow-hidden"
       id="contact"
     >
       {/* Section Title */}

@@ -73,7 +73,7 @@ function Experience() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="experience" className="min-h-screen flex flex-col justify-center bg-[#0a0a0a] py-16 px-4 md:px-8 w-full">
+    <section id="experience" className="py-20 px-4 md:px-8 bg-[#0a0a0a] w-full">
       <div className="max-w-6xl mx-auto w-full">
         {/* Section Heading matching Projects section */}
         <div className="text-center mb-10" data-aos="fade-up">

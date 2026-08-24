@@ -72,7 +72,7 @@ const skills = [
 
 function Skills() {
   return (
-    <section id="skills" className="min-h-screen flex flex-col justify-center bg-[#121212] py-16 px-4 md:px-8 w-full">
+    <section id="skills" className="py-20 px-4 md:px-8 bg-[#121212] w-full">
       <div className="max-w-6xl mx-auto w-full">
         {/* Section Heading */}
         <div className="mb-10 text-center" data-aos="fade-up">

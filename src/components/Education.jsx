@@ -30,7 +30,7 @@ const educationItems = [
 
 function Education() {
   return (
-    <section className="min-h-screen flex flex-col justify-center bg-black text-white py-16 px-4 md:px-8 w-full" id="education">
+    <section className="py-20 px-4 md:px-8 bg-black text-white w-full" id="education">
       <div className="max-w-6xl mx-auto w-full">
         {/* Section Heading */}
         <div className="text-center mb-10" data-aos="fade-up">

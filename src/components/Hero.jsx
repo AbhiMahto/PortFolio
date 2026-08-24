@@ -54,7 +54,7 @@ function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-8 pb-16 bg-black">
+    <section id="hero" className="min-h-[90vh] flex items-center py-20 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
