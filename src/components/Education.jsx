@@ -1,99 +1,90 @@
 import React from "react";
-import { CalendarDays, GraduationCap, Briefcase } from "lucide-react";
+import { CalendarDays, GraduationCap, School } from "lucide-react";
 
-const timelineItems = [
-  {
-    title: "Web Developer Intern",
-    subtitle: "AutoCluster-Adityapur",
-    date: "June 2025 - July 2025",
-    description:
-      "Learn to the develop and optimize dynamic web applications. Gained hands-on experience enhancing user experience and improving website performance.",
-    tags: ["Web Development", "JavaScript", "Optimization", "User Experience"],
-  },
+const educationItems = [
   {
     title: "B.Tech in Computer Science and Engineering",
-    subtitle: "RVSCET, Jamshedpur",
-    date: "2023-2027",
-    description:
-      "Studying Computer Science with a focus on programming, algorithms, and software development.",
-    type: "education",
+    subtitle: "R.V.S. College of Engineering and Technology (JUT Ranchi)",
+    date: "2023 – 2027",
+    description: "Pursuing Bachelor of Technology in CSE with core focus on Software Development, Data Structures & Algorithms, Database Systems, and AI/ML.",
+    badge: "Undergraduate",
   },
-  {
-    title: "Learn Frontend Tools ",
-    subtitle: ["Udemy, ", "FreeCodeCamp "],
-    date: "2023",
-    description:
-      "",
-    tags: ["HTML", "CSS", "Js", "Reacts", "Frameworks"],
-  },
-
   {
     title: "Higher Secondary Education (12th)",
-    subtitle: "DAV Public School Koyla Nagar Dhanbad",
-    date: "2022",
-    description:
-      "Completed higher secondary education with excellence in science stream.",
-    percentage: "80.8%",
+    subtitle: "DAV Public School Koyla Nagar, Dhanbad",
+    date: "2020 – 2022",
+    description: "Completed Higher Secondary education with specialization in Science stream (Physics, Chemistry, Mathematics).",
+    percentage: "80.4%",
+    badge: "CBSE Board",
   },
+  {
+    title: "Secondary Education (10th)",
+    subtitle: "DAV Public School Koyla Nagar, Dhanbad",
+    date: "2019 – 2020",
+    description: "Completed Secondary School education with distinction.",
+    percentage: "87%",
+    badge: "CBSE Board",
+  }
 ];
 
 function Education() {
   return (
-    <section className="py-18 px-4 bg-black text-white" id="education">
-      <h2 className="text-4xl font-bold text-amber-50 text-center mb-10 underline decoration-pink-400 underline-offset-8">
-        Education
-      </h2>
-      
-      <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-        {timelineItems.map((item, idx) => (
-          <div key={idx} className="relative pl-8 border-l-2 border-cyan-400">
-            
-            {/* Dot */}
-            <div className="absolute -left-2 top-2 w-3 h-3 bg-pink-500 rounded-full z-10"></div>
-                    
-            {/* Card */}
-            <div className="bg-white text-black p-6 rounded-xl shadow-lg hover:shadow-[#f0539f] ">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.subtitle}</p>
-                  <p className="text-sm text-gray-600 flex items-center gap-1 mt-1">
-                    <CalendarDays size={16} />
-                    {item.date}
-                  </p>
-                </div>
-                {item.badge && (
-                  <span className="bg-cyan-300 text-sm font-semibold text-black px-3 py-1 rounded-full">
+    <section className="py-14 sm:py-16 px-4 md:px-8 bg-black text-white" id="education">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Heading */}
+        <div className="text-center mb-10" data-aos="fade-up">
+          <h2 className="text-3xl sm:text-4xl font-bold text-amber-50 underline decoration-pink-400 underline-offset-8">
+            Academic Education
+          </h2>
+          <p className="text-gray-400 mt-2.5 text-xs sm:text-sm max-w-md mx-auto font-medium">
+            Educational credentials, academic milestones, and board qualifications.
+          </p>
+        </div>
+
+        {/* Responsive Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {educationItems.map((item, idx) => (
+            <div
+              key={idx}
+              data-aos="fade-up"
+              data-aos-delay={idx * 80}
+              className="bg-[#121216] border border-gray-800 p-5 rounded-xl flex flex-col justify-between hover:border-pink-500/50 transition-colors shadow-xl relative overflow-hidden"
+            >
+              {/* Top Accent Line */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-cyan-400"></div>
+
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="bg-pink-500/10 border border-pink-500/30 text-pink-400 px-2.5 py-0.5 rounded-full text-[10px] font-semibold">
                     {item.badge}
                   </span>
-                )}
+                  <span className="text-xs text-gray-400 flex items-center gap-1 font-semibold">
+                    <CalendarDays size={12} className="text-cyan-400" /> {item.date}
+                  </span>
+                </div>
+
+                <h3 className="text-base font-bold text-white mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-xs font-semibold text-pink-400 mb-3 flex items-center gap-1">
+                  <GraduationCap size={14} /> {item.subtitle}
+                </p>
+
+                <p className="text-xs text-gray-300 leading-relaxed font-medium mb-3">
+                  {item.description}
+                </p>
               </div>
 
-              <p className="mt-4 text-gray-800">{item.description}</p>
-
-              {/* Extra Info */}
               {item.percentage && (
-                <p className="text-sm font-semibold mt-2">
-                  Percentage: {item.percentage}
-                </p>
-              )}
-
-              {/* Tags */}
-              {item.tags && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {item.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="pt-3 border-t border-gray-800/80 mt-2">
+                  <span className="text-xs font-bold text-cyan-400">
+                    Score: {item.percentage}
+                  </span>
                 </div>
               )}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
