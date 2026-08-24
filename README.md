@@ -97,7 +97,6 @@ Portfolio/
 - **GitHub**: [github.com/AbhiMahto](https://github.com/AbhiMahto)
 - **LinkedIn**: [linkedin.com/in/abhinam-mahato](https://linkedin.com/in/abhinam-mahato)
 - **Email**: [abhinamkumar2222@gmail.com](mailto:abhinamkumar2222@gmail.com)
-- **Phone**: +91 9470507693
 
 ---
 
