@@ -1,12 +1,10 @@
-
-
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { Menu, X } from "lucide-react";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,68 +14,81 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const linkStyle = `cursor-pointer transition-colors duration-200 ${scrolled ? "text-gray-900" : "text-white"
-    } hover:text-pink-500`;
+  const navLinks = [
+    { name: "Home", to: "hero" },
+    { name: "About", to: "about" },
+    { name: "Skills", to: "skills" },
+    { name: "Experience", to: "experience" },
+    { name: "Education", to: "education" },
+    { name: "Projects", to: "projects" },
+    { name: "Certifications", to: "certifications" },
+    { name: "Contact", to: "contact" },
+  ];
 
   return (
-    <div>
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md" : "bg-transparent"
-          }`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+    <header
+      className={`sticky top-0 w-full z-40 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0a0a0c]/90 backdrop-blur-md border-b border-gray-800/80 shadow-lg py-3"
+          : "bg-[#0a0a0c] py-4 border-b border-gray-900"
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        {/* Brand Logo */}
+        <Link
+          to="hero"
+          smooth={true}
+          duration={500}
+          className="text-xl font-extrabold text-white tracking-tight cursor-pointer hover:text-pink-500 transition-colors"
+        >
+          Abhinam <span className="text-pink-500">Kr. Mahato</span>
+        </Link>
+
+        {/* Desktop Links */}
+        <nav className="hidden lg:flex items-center space-x-6">
+          {navLinks.map((link) => (
             <Link
-              to="#hero"
+              key={link.to}
+              to={link.to}
               smooth={true}
               duration={500}
-              className={`text-xl font-bold cursor-pointer ${scrolled ? "text-pink-500" : "text-white"
-                }`}
+              spy={true}
+              activeClass="text-pink-500 font-bold"
+              className="text-sm font-medium text-gray-300 hover:text-pink-400 cursor-pointer transition-colors"
             >
-              Abhinam Kr. Mahato
+              {link.name}
             </Link>
+          ))}
+        </nav>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="hero" smooth={true} duration={500} className={linkStyle}>
-                Home
-              </Link>
-              <Link to="about" smooth={true} duration={500} className={linkStyle}>
-                About
-              </Link>
-              <Link to="skills" smooth={true} duration={500} className={linkStyle}>
-                Skills
-              </Link>
-              <Link to="projects" smooth={true} duration={500} className={linkStyle}>
-                Projects
-              </Link>
-              <Link to="experience" smooth={true} duration={500} className={linkStyle}>
-                Experience
-              </Link>
-              <Link to="certifications" smooth={true} duration={500} className={linkStyle}>
-                Certifications
-              </Link>
-              <Link to="contact" smooth={true} duration={500} className={linkStyle}>
-                Contact
-              </Link>
-            </div>
+        {/* Mobile Toggle Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden text-white p-2 rounded-lg bg-gray-900 border border-gray-800 focus:outline-none cursor-pointer"
+          aria-label="Toggle Navigation"
+        >
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
 
-            {/* Mobile Menu Placeholder */}
-            <div className="md:hidden">
-              <button
-                onClick={() => { setMenuOpen(!menuOpen) }}
-                className={`text-2xl focus:outline-none ${scrolled ? "text-gray-900" : "text-white"
-                  }`}
-                aria-label="Toggle menu"
-              >
-                ☰
-              </button>
-            </div>
-          </div>
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#0d0d11] border-b border-gray-800 px-6 py-4 space-y-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-300 hover:text-pink-400 font-medium py-1.5 border-b border-gray-800/50 cursor-pointer"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
-      </nav>
-    </div>
+      )}
+    </header>
   );
 }
 

@@ -16,7 +16,6 @@ const timelineItems = [
     date: "2023-2027",
     description:
       "Studying Computer Science with a focus on programming, algorithms, and software development.",
-    cgpa: "7.86/10",
     type: "education",
   },
   {
@@ -25,7 +24,7 @@ const timelineItems = [
     date: "2023",
     description:
       "",
-         tags: ["HTML","CSS", "Js", "Reacts","Frameworks"],
+    tags: ["HTML", "CSS", "Js", "Reacts", "Frameworks"],
   },
 
   {
@@ -40,13 +39,12 @@ const timelineItems = [
 
 function Education() {
   return (
-    <section className="py-18 px-4 bg-black text-white" id="experience">
-      <h2 className="text-4xl font-bold text-amber-50 text-center mb-10 underline decoration-cyan-400 underline-offset-8">
-        Experience & Education
+    <section className="py-18 px-4 bg-black text-white" id="education">
+      <h2 className="text-4xl font-bold text-amber-50 text-center mb-10 underline decoration-pink-400 underline-offset-8">
+        Education
       </h2>
       
       <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-    
         {timelineItems.map((item, idx) => (
           <div key={idx} className="relative pl-8 border-l-2 border-cyan-400">
             
@@ -74,9 +72,6 @@ function Education() {
               <p className="mt-4 text-gray-800">{item.description}</p>
 
               {/* Extra Info */}
-              {item.cgpa && (
-                <p className="text-sm font-semibold mt-2">CGPA: {item.cgpa}</p>
-              )}
               {item.percentage && (
                 <p className="text-sm font-semibold mt-2">
                   Percentage: {item.percentage}

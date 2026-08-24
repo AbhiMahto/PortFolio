@@ -1,99 +1,107 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, ExternalLink } from 'lucide-react';
 import './ui/Hero.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-
-
-
-
 function Hero() {
-  const [lcStats, setLcStats] = useState("80+");
-  const [gfgStats, setGfgStats] = useState("60+");
+  // Initial default fallback stats so the portfolio never shows blank text
+  const [lcStats, setLcStats] = useState("150+");
+  const [gfgStats, setGfgStats] = useState("200+");
 
-  // NOTE: Update these usernames with your actual LeetCode and GFG profile user handles
+  // Update these usernames with your exact profile handles
   const leetcodeUsername = "AbhiMahto"; 
   const gfgUsername = "abhinamkumar2222"; 
 
   useEffect(() => {
     AOS.init({
-      duration: 800,  // animation duration
-      once: true,     // animation happens only once
+      duration: 800,
+      once: true,
     });
 
-    // Fetch live LeetCode Stats
-    fetch(`https://leetcode-stats-api.herokuapp.com/${leetcodeUsername}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success" && data.totalSolved) {
-          setLcStats(data.totalSolved.toString());
+    // 1. Fetch live LeetCode Stats dynamically
+    const fetchLeetCode = async () => {
+      try {
+        const res = await fetch(`https://alfa-leetcode-api.onrender.com/${leetcodeUsername}/solved`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.solvedProblem !== undefined && data.solvedProblem > 0) {
+            setLcStats(data.solvedProblem.toString());
+          }
         }
-      })
-      .catch((err) => console.error("Error fetching LeetCode stats:", err));
+      } catch (err) {
+        console.warn("LeetCode primary API sleeping or unreachable, using fallback display count.");
+      }
+    };
 
-    // Fetch live GeeksForGeeks Stats (using a community API Wrapper)
-    fetch(`https://geeks-for-geeks-api-production.up.railway.app/${gfgUsername}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.info && data.info.totalProblemsSolved) {
-          setGfgStats(data.info.totalProblemsSolved.toString());
+    // 2. Fetch live GeeksForGeeks Stats dynamically
+    const fetchGFG = async () => {
+      try {
+        const res = await fetch(`https://geeks-for-geeks-api-production.up.railway.app/${gfgUsername}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.info && data.info.totalProblemsSolved) {
+            setGfgStats(data.info.totalProblemsSolved.toString());
+          }
         }
-      })
-      .catch((err) => console.error("Error fetching GFG stats:", err));
+      } catch (err) {
+        console.warn("GFG primary API unreachable, using fallback display count.");
+      }
+    };
+
+    fetchLeetCode();
+    fetchGFG();
   }, []);
+
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-16 bg-black">
-      
+    <section id="hero" className="min-h-screen flex items-center pt-8 pb-16 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
           {/* Left Column - Introduction */}
-          <div className="space-y-4 md:pr-10">
-
-
-            
+          <div className="space-y-5 md:pr-10">
             {/* Name and Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white tracking-tight">
               <span className="block">Hi, I'm</span>
               <span className="text-pink-600">Abhinam Kumar</span>
             </h1>
 
-            {/* Typing animation */}
-            <p className="typing text-white text-xl font-mono">
-                   Aspiring Software Engineer
-</p>
-
+            {/* Subtitle */}
+            <p className="typing text-white text-xl font-mono font-semibold">
+              Aspiring Software Engineer
+            </p>
 
             {/* Short description */}
-            <p className="text-white text-lg">
-              A dedicated learner and problem solver with a passion for building impactful software solutions.
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              Dedicated learner and problem solver passionate about software engineering, AI/ML models, and web applications.
             </p>
 
             {/* Social Media Links */}
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4 pt-2">
               <a
                 href="https://github.com/AbhiMahto"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-pink-500 transition-colors"
+                className="text-gray-300 hover:text-pink-500 transition-colors p-2 bg-gray-900 rounded-lg border border-gray-800"
+                aria-label="GitHub Profile"
               >
-                <Github size={24} />
+                <Github size={22} />
               </a>
               <a
                 href="https://linkedin.com/in/abhinam-mahato"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-pink-500 transition-colors"
+                className="text-gray-300 hover:text-pink-500 transition-colors p-2 bg-gray-900 rounded-lg border border-gray-800"
+                aria-label="LinkedIn Profile"
               >
-                <Linkedin size={24} />
+                <Linkedin size={22} />
               </a>
               <a
                 href="mailto:abhinamkumar2222@gmail.com"
-                className="text-white hover:text-pink-500 transition-colors"
+                className="text-gray-300 hover:text-pink-500 transition-colors p-2 bg-gray-900 rounded-lg border border-gray-800"
+                aria-label="Email"
               >
-                <Mail size={24} />
+                <Mail size={22} />
               </a>
             </div>
 
@@ -101,16 +109,13 @@ function Hero() {
             <div className="flex space-x-4 pt-4">
               <a 
                 href="#projects" 
-                className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors cursor-pointer"
+                className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-pink-600/30 cursor-pointer"
               >
-                <span className="relative">
-                  View Projects
-                  <sub className="absolute -bottom-3 left-5 text-xs text-amber-200 "></sub>
-                </span>
+                <span>View Projects</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -123,7 +128,7 @@ function Hero() {
               </a>
               <a 
                 href="#contact"
-                className="border-2 border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300 cursor-pointer"
+                className="border-2 border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-white px-6 py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
               >
                 Contact Me
               </a>
@@ -131,33 +136,31 @@ function Hero() {
           </div>
 
           {/* Right Column - Info Card */}
-          <div className="w-full"data-aos="fade-up"
- >
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 space-y-5 text-black animate-fade-in">
-
+          <div className="w-full" data-aos="fade-up">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl border border-gray-200 space-y-5 text-black">
               {/* Education Section */}
               <div>
-                <h2 className="text-sm text-blue-500 uppercase font-semibold mb-3 tracking-wider">
+                <h2 className="text-xs text-blue-600 uppercase font-extrabold mb-2 tracking-wider">
                   Education
                 </h2>
-                <div className="space-y-0">
-                  <h3 className="font-semibold text-gray-900">
+                <div className="space-y-0.5">
+                  <h3 className="font-bold text-gray-900 text-base">
                     B.Tech in Computer Science and Engineering
                   </h3>
-                  <p className="text-gray-700">JUT Ranchi (2023–2027)</p>
+                  <p className="text-gray-700 text-sm font-medium">R.V.S. College of Engineering & Technology (2023–2027)</p>
                 </div>
               </div>
 
               {/* Technical Skills Section */}
               <div>
-                <h2 className="text-sm text-blue-500 uppercase font-semibold mb-3 tracking-wider">
+                <h2 className="text-xs text-blue-600 uppercase font-extrabold mb-2 tracking-wider">
                   Technical Skills
                 </h2>
-                <div className="flex flex-wrap gap-1">
-                  {["MERN Stack", "Python Basics", "Java", "C++", "ML/AI Basics"].map((skill) => (
+                <div className="flex flex-wrap gap-1.5">
+                  {["MERN Stack", "Python", "Java", "C++", "AI/ML", "GitHub", "DSA", "Tailwind CSS", "Firebase"].map((skill) => (
                     <span 
                       key={skill}
-                      className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium"
+                      className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold border border-gray-300"
                     >
                       {skill}
                     </span>
@@ -167,54 +170,48 @@ function Hero() {
 
               {/* Coding Profiles Section */}
               <div>
-                <h2 className="text-sm text-blue-500 uppercase font-semibold mb-3 tracking-wider">
-                  Coding Profiles // certification
+                <h2 className="text-xs text-blue-600 uppercase font-extrabold mb-2 tracking-wider">
+                  Coding Profiles
                 </h2>
-                <div className="space-y-1">
+                <div className="space-y-1.5">
                   <a 
                     href={`https://leetcode.com/u/${leetcodeUsername}/`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center group cursor-pointer"
+                    className="flex items-center group cursor-pointer text-sm font-semibold"
                   >
-                    <span className="font-medium text-gray-900 group-hover:text-pink-600 transition-colors mr-2">Leetcode: </span>
-                    <span className="text-gray-500 group-hover:text-pink-500 transition-colors">{lcStats} Solved</span>
+                    <span className="text-gray-900 group-hover:text-pink-600 transition-colors mr-2">LeetCode:</span>
+                    <span className="text-pink-600 group-hover:text-pink-700 font-bold transition-colors">{lcStats} Solved</span>
+                    <ExternalLink size={13} className="ml-1 text-gray-400 group-hover:text-pink-600" />
                   </a>
                   
                   <a 
                     href={`https://www.geeksforgeeks.org/user/${gfgUsername}/`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center group cursor-pointer"
+                    className="flex items-center group cursor-pointer text-sm font-semibold"
                   >
-                    <span className="font-medium text-gray-900 group-hover:text-pink-600 transition-colors mr-2">GFG: </span>
-                    <span className="text-gray-500 group-hover:text-pink-500 transition-colors">{gfgStats} Solved</span>
+                    <span className="text-gray-900 group-hover:text-pink-600 transition-colors mr-2">GeeksforGeeks:</span>
+                    <span className="text-pink-600 group-hover:text-pink-700 font-bold transition-colors">{gfgStats} Solved</span>
+                    <ExternalLink size={13} className="ml-1 text-gray-400 group-hover:text-pink-600" />
                   </a>
-                  
-                  {/* <div className="flex items-center">
-                    <span className="font-medium text-gray-900">HackerRank: </span>
-                    <span className="text-gray-500">3★ (C++)</span>
-                  </div> */}
                 </div>
               </div>
 
-              {/* Contact Section */}
-<div>
-  <h2 className="text-sm text-blue-500 uppercase font-semibold mb-3 tracking-wider">
-    Contact
-  </h2>
-
-  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 text-gray-800">
-    <a href="#" className="hover:underline">
-      9470507693
-    </a>
-    <a href="mailto:abhinam@gmail.com" className="hover:underline">
-      abhinamkumar2222@gmail.com
-    </a>
-  </div>
-</div>
-
-
+              {/* Contact Quick Link Section */}
+              <div>
+                <h2 className="text-xs text-blue-600 uppercase font-extrabold mb-2 tracking-wider">
+                  Direct Contact
+                </h2>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-sm text-gray-800 font-medium">
+                  <a href="tel:+919470507693" className="hover:text-pink-600 flex items-center gap-1">
+                    <Phone size={14} className="text-pink-500" /> +91 9470507693
+                  </a>
+                  <a href="mailto:abhinamkumar2222@gmail.com" className="hover:text-pink-600 flex items-center gap-1">
+                    <Mail size={14} className="text-pink-500" /> abhinamkumar2222@gmail.com
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
