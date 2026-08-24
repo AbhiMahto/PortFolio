@@ -195,14 +195,13 @@ const StrokeText = ({
   return (
     <span
       ref={rootRef}
-      className={`block w-full leading-[0] ${trigger === 'hover' ? 'cursor-pointer' : ''} ${className}`.trim()}
+      className={`block w-full leading-none ${trigger === 'hover' ? 'cursor-pointer' : ''} ${className}`.trim()}
       style={style}
       role="img"
       aria-label={String(text ?? '')}
     >
       <svg
-        className="block w-full"
-        style={{ height: `${Math.round(fontSize * 1.3)}px` }}
+        className="block w-full h-auto max-h-[25vh]"
         viewBox={viewBox}
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
