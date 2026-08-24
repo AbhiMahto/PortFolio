@@ -53,7 +53,7 @@ function Loader({ onFinished }) {
       <div className="w-full max-w-4xl px-2 sm:px-6 relative z-10 flex flex-col items-center justify-center">
         <div className="w-full overflow-hidden flex items-center justify-center">
           <StrokeText
-            text="ABHINAM KUMAR MAHATO"
+            text="ABHINAM KUMAR"
             strokeColor="#ec4899"
             fillColor="#ffffff"
             strokeWidth={1.6}
