@@ -59,25 +59,25 @@ function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
           {/* Left Column - Introduction */}
-          <div className="space-y-5 md:pr-10">
+          <div className="space-y-4 sm:space-y-5 md:pr-10">
             {/* Name and Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white tracking-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white tracking-tight">
               <span className="block">Hi, I'm</span>
               <span className="text-pink-600">Abhinam Kumar</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="typing text-white text-xl font-mono font-semibold">
+            <p className="typing text-white text-base sm:text-xl font-mono font-semibold">
               Aspiring Software Engineer
             </p>
 
             {/* Short description */}
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-300 text-sm sm:text-lg leading-relaxed">
               Dedicated learner and problem solver passionate about software engineering, AI/ML models, and web applications.
             </p>
 
             {/* Social Media Links */}
-            <div className="flex items-center space-x-4 pt-2">
+            <div className="flex items-center space-x-3 sm:space-x-4 pt-1">
               <a
                 href="https://github.com/AbhiMahto"
                 target="_blank"
@@ -85,7 +85,7 @@ function Hero() {
                 className="text-gray-300 hover:text-pink-500 transition-colors p-2 bg-gray-900 rounded-lg border border-gray-800"
                 aria-label="GitHub Profile"
               >
-                <Github size={22} />
+                <Github size={20} />
               </a>
               <a
                 href="https://linkedin.com/in/abhinam-mahato"
@@ -94,22 +94,22 @@ function Hero() {
                 className="text-gray-300 hover:text-pink-500 transition-colors p-2 bg-gray-900 rounded-lg border border-gray-800"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin size={22} />
+                <Linkedin size={20} />
               </a>
               <a
                 href="mailto:abhinamkumar2222@gmail.com"
                 className="text-gray-300 hover:text-pink-500 transition-colors p-2 bg-gray-900 rounded-lg border border-gray-800"
                 aria-label="Email"
               >
-                <Mail size={22} />
+                <Mail size={20} />
               </a>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex space-x-4 pt-4">
+            <div className="flex flex-wrap sm:flex-row gap-3 pt-2 sm:pt-4">
               <a 
                 href="#projects" 
-                className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-pink-600/30 cursor-pointer"
+                className="bg-pink-600 hover:bg-pink-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-pink-600/30 cursor-pointer text-sm sm:text-base"
               >
                 <span>View Projects</span>
                 <svg
@@ -128,7 +128,7 @@ function Hero() {
               </a>
               <a 
                 href="#contact"
-                className="border-2 border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-white px-6 py-3 rounded-xl font-semibold transition duration-300 cursor-pointer"
+                className="border-2 border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-semibold transition duration-300 cursor-pointer text-sm sm:text-base"
               >
                 Contact Me
               </a>

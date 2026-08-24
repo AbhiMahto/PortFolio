@@ -29,8 +29,8 @@ function Navbar() {
     <header
       className={`sticky top-0 w-full z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0a0c]/90 backdrop-blur-md border-b border-gray-800/80 shadow-lg py-3"
-          : "bg-[#0a0a0c] py-4 border-b border-gray-900"
+          ? "bg-[#0a0a0c]/95 backdrop-blur-md border-b border-gray-800/80 shadow-lg py-2.5 sm:py-3"
+          : "bg-[#0a0a0c] py-3 sm:py-4 border-b border-gray-900"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -39,7 +39,7 @@ function Navbar() {
           to="hero"
           smooth={true}
           duration={500}
-          className="text-xl font-extrabold text-white tracking-tight cursor-pointer hover:text-pink-500 transition-colors"
+          className="text-base sm:text-xl font-extrabold text-white tracking-tight cursor-pointer hover:text-pink-500 transition-colors shrink-0"
         >
           Abhinam <span className="text-pink-500">Kr. Mahato</span>
         </Link>
@@ -64,16 +64,16 @@ function Navbar() {
         {/* Mobile Toggle Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-white p-2 rounded-lg bg-gray-900 border border-gray-800 focus:outline-none cursor-pointer"
+          className="lg:hidden text-white p-1.5 sm:p-2 rounded-lg bg-gray-900 border border-gray-800 focus:outline-none cursor-pointer shrink-0"
           aria-label="Toggle Navigation"
         >
-          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0d0d11] border-b border-gray-800 px-6 py-4 space-y-3">
+        <div className="lg:hidden bg-[#0d0d11] border-b border-gray-800 px-5 py-3 space-y-2">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -81,7 +81,7 @@ function Navbar() {
               smooth={true}
               duration={500}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-300 hover:text-pink-400 font-medium py-1.5 border-b border-gray-800/50 cursor-pointer"
+              className="block text-gray-300 hover:text-pink-400 font-semibold py-1.5 border-b border-gray-800/50 cursor-pointer text-sm"
             >
               {link.name}
             </Link>
