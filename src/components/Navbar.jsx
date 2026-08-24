@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X,} from "lucide-react";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,12 +41,9 @@ function Navbar() {
           duration={500}
           className="text-base sm:text-xl font-extrabold text-white tracking-tight cursor-pointer hover:text-pink-500 transition-colors shrink-0 flex items-center gap-2"
         >
-          <div className="w-8 h-8 rounded-lg bg-pink-600/20 border border-pink-500/40 flex items-center justify-center text-pink-400">
-            <Sparkles size={16} />
-          </div>
-          <span>
+          
+          
             Abhinam <span className="text-pink-500">Kr. Mahato</span>
-          </span>
         </Link>
 
         {/* Desktop Links */}
